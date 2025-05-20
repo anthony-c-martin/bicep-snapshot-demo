@@ -1,0 +1,43 @@
+{
+  "predictedResources": [
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myregistrypushidentity",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "myregistrypushidentity",
+      "apiVersion": "2018-11-30",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry",
+      "type": "Microsoft.ContainerRegistry/registries",
+      "name": "myregistry",
+      "apiVersion": "2023-07-01",
+      "location": "eastus",
+      "sku": {
+        "name": "Premium"
+      },
+      "properties": {
+        "adminUserEnabled": false,
+        "zoneRedundancy": "Enabled",
+        "policies": {
+          "retentionPolicy": {
+            "days": 2,
+            "status": "enabled"
+          }
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry/providers/Microsoft.Authorization/roleAssignments/b077031e-0bef-5809-9d71-5c0eb1ee176b",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "b077031e-0bef-5809-9d71-5c0eb1ee176b",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myregistrypushidentity', '2018-11-30').principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    }
+  ],
+  "diagnostics": []
+}

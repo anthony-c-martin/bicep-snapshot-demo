@@ -1,0 +1,16 @@
+<policies>
+  <inbound>
+    <validate-azure-ad-token tenant-id="$REPLACE_AAD_TENANTID">
+      <audiences>
+        $REPLACE_AUDIENCES_XML
+      </audiences>
+      <client-application-ids>
+        $REPLACE_CLIENT_APPIDS_XML
+      </client-application-ids>
+    </validate-azure-ad-token>
+    <set-backend-service base-url="$REPLACE_BACKEND_ENDPOINT" />
+  </inbound>
+  <backend>
+    <forward-request timeout="60" buffer-response="false" />
+  </backend>
+</policies>

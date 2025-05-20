@@ -1,0 +1,801 @@
+{
+  "predictedResources": [
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.OperationalInsights/workspaces/cp-workspace-prod",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "name": "cp-workspace-prod",
+      "apiVersion": "2021-12-01-preview",
+      "location": "eastus",
+      "properties": {
+        "sku": {
+          "name": "PerGB2018"
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cp-ca-identity-prod",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "cp-ca-identity-prod",
+      "apiVersion": "2023-01-31",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cp-apim-identity-prod",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "cp-apim-identity-prod",
+      "apiVersion": "2023-01-31",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cp-data-identity-prod",
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "name": "cp-data-identity-prod",
+      "apiVersion": "2023-01-31",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.DocumentDB/databaseAccounts/cp-cosmosdb-prod",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "cp-cosmosdb-prod",
+      "apiVersion": "2023-03-15",
+      "location": "eastus",
+      "properties": {
+        "ipRules": [
+          {
+            "ipAddressOrRange": "192.168.0.1"
+          },
+          {
+            "ipAddressOrRange": "0.0.0.0"
+          }
+        ],
+        "enableAnalyticalStorage": false,
+        "disableLocalAuth": true,
+        "locations": [
+          {
+            "failoverPriority": 0,
+            "isZoneRedundant": false,
+            "locationName": "eastus"
+          }
+        ],
+        "publicNetworkAccess": "Enabled",
+        "virtualNetworkRules": [],
+        "disableKeyBasedMetadataWriteAccess": true,
+        "databaseAccountOfferType": "Standard",
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Session"
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.DocumentDB/databaseAccounts/cp-cosmosdb-prod/sqlDatabases/quickstarts",
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+      "name": "cp-cosmosdb-prod/quickstarts",
+      "apiVersion": "2023-03-15",
+      "properties": {
+        "resource": {
+          "id": "quickstarts"
+        },
+        "options": {
+          "autoscaleSettings": {
+            "maxThroughput": 10000
+          }
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.DocumentDB/databaseAccounts/cp-cosmosdb-prod/sqlDatabases/quickstarts/containers/templates",
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "name": "cp-cosmosdb-prod/quickstarts/templates",
+      "apiVersion": "2023-03-15",
+      "properties": {
+        "resource": {
+          "id": "templates",
+          "partitionKey": {
+            "paths": [
+              "/id"
+            ],
+            "kind": "Hash"
+          }
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.CognitiveServices/accounts/cp-openai-prod",
+      "type": "Microsoft.CognitiveServices/accounts",
+      "name": "cp-openai-prod",
+      "apiVersion": "2023-05-01",
+      "location": "westus2",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "OpenAI",
+      "properties": {
+        "customSubDomainName": "cp-openai-prod",
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": true
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.CognitiveServices/accounts/cp-openai-prod/deployments/gpt-4o-mini",
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "name": "cp-openai-prod/gpt-4o-mini",
+      "apiVersion": "2023-05-01",
+      "sku": {
+        "name": "Standard",
+        "capacity": 220
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-4o-mini",
+          "version": "2024-07-18"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.CognitiveServices/accounts/cp-openai-prod/deployments/text-embedding-ada-002",
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "name": "cp-openai-prod/text-embedding-ada-002",
+      "apiVersion": "2023-05-01",
+      "sku": {
+        "name": "Standard",
+        "capacity": 120
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "text-embedding-ada-002",
+          "version": "2"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod",
+      "type": "Microsoft.Search/searchServices",
+      "name": "cp-searchservice-prod",
+      "apiVersion": "2023-11-01",
+      "location": "eastus",
+      "sku": {
+        "name": "standard"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "hostingMode": "default",
+        "partitionCount": 1,
+        "replicaCount": 1,
+        "publicNetworkAccess": "enabled",
+        "semanticSearch": "standard",
+        "disableLocalAuth": true
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.CognitiveServices/accounts/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.CognitiveServices/accounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.CognitiveServices/accounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/5e0bd9bd-7b93-4f28-af87-19fc36ad61bd",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', '2023-11-01', 'full').identity.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.DocumentDB/databaseAccounts/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/fbdf93bf-df7d-467e-a4d2-9458aa1360c8'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/fbdf93bf-df7d-467e-a4d2-9458aa1360c8')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', '2023-11-01', 'full').identity.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.DocumentDB/databaseAccounts/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002'))), '/')[0], '/sqlRoleAssignments/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002'))), '/')[1]))]",
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments",
+      "name": "[format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002')))]",
+      "apiVersion": "2024-05-15",
+      "properties": {
+        "roleDefinitionId": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002')]",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Search/searchServices/cp-searchservice-prod', '2023-11-01', 'full').identity.principalId]",
+        "scope": "[resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name)]"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Insights/components/cp-appinsights-prod",
+      "type": "Microsoft.Insights/components",
+      "name": "cp-appinsights-prod",
+      "apiVersion": "2020-02-02",
+      "location": "eastus",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "Flow_Type": "Bluefield",
+        "Request_Source": "rest",
+        "RetentionInDays": 90,
+        "WorkspaceResourceId": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.OperationalInsights/workspaces/cp-workspace-prod",
+        "IngestionMode": "LogAnalytics",
+        "publicNetworkAccessForIngestion": "Enabled",
+        "publicNetworkAccessForQuery": "Enabled"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "cp-nsg-prod",
+      "apiVersion": "2024-01-01",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/virtualNetworks/cp-vnet-prod",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "cp-vnet-prod",
+      "apiVersion": "2024-01-01",
+      "location": "eastus",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.1.0.0/16"
+          ]
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/virtualNetworks/cp-vnet-prod/subnets/apim-subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "cp-vnet-prod/apim-subnet",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "addressPrefix": "10.1.0.0/22",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod"
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/virtualNetworks/cp-vnet-prod/subnets/aca-subnet",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "cp-vnet-prod/aca-subnet",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "addressPrefix": "10.1.4.0/24",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod"
+        },
+        "delegations": [
+          {
+            "name": "Microsoft.App.environments",
+            "properties": {
+              "serviceName": "Microsoft.App/environments"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod/securityRules/Inbound_HTTPS",
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "name": "cp-nsg-prod/Inbound_HTTPS",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "443",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 200,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod/securityRules/Inbound_Management",
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "name": "cp-nsg-prod/Inbound_Management",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3443",
+        "sourceAddressPrefix": "ApiManagement",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 210,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod/securityRules/Inbound_LoadBalancer",
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "name": "cp-nsg-prod/Inbound_LoadBalancer",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "6390",
+        "sourceAddressPrefix": "AzureLoadBalancer",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 220,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Network/networkSecurityGroups/cp-nsg-prod/securityRules/Inbound_AzureTrafficManager",
+      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "name": "cp-nsg-prod/Inbound_AzureTrafficManager",
+      "apiVersion": "2024-01-01",
+      "properties": {
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "443",
+        "sourceAddressPrefix": "AzureTrafficManager",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 230,
+        "direction": "Inbound"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/managedEnvironments/cp-cae-prod",
+      "type": "Microsoft.App/managedEnvironments",
+      "name": "cp-cae-prod",
+      "apiVersion": "2023-11-02-preview",
+      "location": "eastus",
+      "properties": {
+        "vnetConfiguration": {
+          "internal": true,
+          "infrastructureSubnetId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/vnet', '2022-09-01').outputs.acaSubnet.value.id]"
+        },
+        "appLogsConfiguration": {
+          "destination": "log-analytics",
+          "logAnalyticsConfiguration": {
+            "customerId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.OperationalInsights/workspaces/cp-workspace-prod', '2021-12-01-preview').customerId]",
+            "sharedKey": "[listKeys('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.OperationalInsights/workspaces/cp-workspace-prod', '2021-12-01-preview').primarySharedKey]"
+          }
+        },
+        "workloadProfiles": [
+          {
+            "name": "Consumption",
+            "workloadProfileType": "Consumption"
+          }
+        ],
+        "zoneRedundant": true
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ApiManagement/service/cp-apim-prod",
+      "type": "Microsoft.ApiManagement/service",
+      "name": "cp-apim-prod",
+      "apiVersion": "2023-05-01-preview",
+      "location": "eastus",
+      "sku": {
+        "name": "Premium",
+        "capacity": 1
+      },
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[format('{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apimIdentity', '2022-09-01').outputs.identity.value.resourceId)]": {}
+        }
+      },
+      "properties": {
+        "publisherEmail": "unizomb@microsoft.com",
+        "publisherName": "unizomb",
+        "notificationSenderEmail": "apimgmt-noreply@mail.windowsazure.com",
+        "virtualNetworkType": "External",
+        "virtualNetworkConfiguration": {
+          "subnetResourceId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/vnet', '2022-09-01').outputs.apimSubnet.value.id]"
+        },
+        "hostnameConfigurations": [
+          {
+            "type": "Proxy",
+            "hostName": "cp-apim-prod.azure-api.net",
+            "negotiateClientCertificate": false,
+            "defaultSslBinding": true,
+            "certificateSource": "BuiltIn"
+          }
+        ]
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ApiManagement/service/cp-apim-prod/loggers/cp-apim-prod",
+      "type": "Microsoft.ApiManagement/service/loggers",
+      "name": "cp-apim-prod/cp-apim-prod",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "loggerType": "applicationInsights",
+        "credentials": {
+          "instrumentationKey": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appInsights', '2022-09-01').outputs.instrumentationKey.value]"
+        },
+        "isBuffered": true,
+        "resourceId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appInsights', '2022-09-01').outputs.appInsights.value.id]"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ApiManagement/service/cp-apim-prod/diagnostics/applicationinsights",
+      "type": "Microsoft.ApiManagement/service/diagnostics",
+      "name": "cp-apim-prod/applicationinsights",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "alwaysLog": "allErrors",
+        "httpCorrelationProtocol": "Legacy",
+        "logClientIp": true,
+        "loggerId": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ApiManagement/service/cp-apim-prod/loggers/cp-apim-prod",
+        "sampling": {
+          "samplingType": "fixed",
+          "percentage": 100
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ApiManagement/service/cp-apim-prod/diagnostics/applicationinsights/loggers/cp-apim-prod",
+      "type": "Microsoft.ApiManagement/service/diagnostics/loggers",
+      "name": "cp-apim-prod/applicationinsights/cp-apim-prod",
+      "apiVersion": "2018-01-01"
+    },
+    {
+      "id": "[CONCAT('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry/providers/', concat('Microsoft.Authorization/roleAssignments/', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry', '/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d')))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry', '/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.AppConfiguration/configurationStores/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.AppConfiguration/configurationStores', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.AppConfiguration/configurationStores', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/516239f1-63e1-4d78-a4de-a74fb236a071",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.CognitiveServices/accounts/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.CognitiveServices/accounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/a001fd3d-188f-4b5d-821b-7da978bf7442'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.CognitiveServices/accounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/a001fd3d-188f-4b5d-821b-7da978bf7442')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/a001fd3d-188f-4b5d-821b-7da978bf7442",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.Search/searchServices/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/containerApps/cpca-ca-prod",
+      "type": "Microsoft.App/containerApps",
+      "name": "cpca-ca-prod",
+      "apiVersion": "2023-11-02-preview",
+      "location": "eastus",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[format('{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.resourceId)]": {}
+        }
+      },
+      "properties": {
+        "managedEnvironmentId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appEnvironment', '2022-09-01').outputs.resource.value.id]",
+        "environmentId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appEnvironment', '2022-09-01').outputs.resource.value.id]",
+        "workloadProfileName": "Consumption",
+        "configuration": {
+          "activeRevisionsMode": "Single",
+          "ingress": {
+            "external": true,
+            "targetPort": 8000,
+            "exposedPort": 8000,
+            "transport": "tcp",
+            "traffic": [
+              {
+                "weight": 100,
+                "latestRevision": true
+              }
+            ],
+            "allowInsecure": false,
+            "stickySessions": {
+              "affinity": "none"
+            }
+          },
+          "registries": [
+            {
+              "server": "[format('{0}{1}', 'myregistry', environment().suffixes.acrLoginServer)]",
+              "identity": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.resourceId]"
+            }
+          ],
+          "maxInactiveRevisions": 100
+        },
+        "template": {
+          "containers": [
+            {
+              "image": "[format('{0}/{1}:{2}', format('{0}{1}', 'myregistry', environment().suffixes.acrLoginServer), 'copilot-handler', '0.0.1')]",
+              "name": "handler",
+              "env": [
+                {
+                  "name": "AZURE_APPCONFIGURATION_ENDPOINT",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig', '2022-09-01').outputs.endpoint.value]"
+                },
+                {
+                  "name": "AZURE_CLIENT_ID",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerIdentity', '2022-09-01').outputs.identity.value.clientId]"
+                },
+                {
+                  "name": "WEBSITE_AAD_ENABLE_MISE",
+                  "value": "true"
+                }
+              ],
+              "resources": {
+                "cpu": 4,
+                "memory": "8Gi"
+              }
+            }
+          ],
+          "scale": {
+            "minReplicas": 1,
+            "maxReplicas": 10
+          },
+          "volumes": []
+        }
+      }
+    },
+    {
+      "id": "[CONCAT('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry/providers/', concat('Microsoft.Authorization/roleAssignments/', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry', '/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d')))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.ContainerRegistry/registries/myregistry', '/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.Search/searchServices/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[EXTENSIONRESOURCEID(format('Microsoft.Search/searchServices/{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), 'Microsoft.Authorization/roleAssignments', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0'))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.Search/searchServices', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.resource.value.name), '/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.DocumentDB/databaseAccounts/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002'))), '/')[0], '/sqlRoleAssignments/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002'))), '/')[1]))]",
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments",
+      "name": "[format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name), resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002')))]",
+      "apiVersion": "2024-05-15",
+      "properties": {
+        "roleDefinitionId": "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name, '00000000-0000-0000-0000-000000000002')]",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "scope": "[resourceId('Microsoft.DocumentDB/databaseAccounts', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.resource.value.name)]"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/jobs/cpca-job-prod",
+      "type": "Microsoft.App/jobs",
+      "name": "cpca-job-prod",
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[format('{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.resourceId)]": {}
+        }
+      },
+      "properties": {
+        "environmentId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appEnvironment', '2022-09-01').outputs.resource.value.id]",
+        "configuration": {
+          "replicaTimeout": 1800,
+          "triggerType": "Manual",
+          "registries": [
+            {
+              "server": "[format('{0}{1}', 'myregistry', environment().suffixes.acrLoginServer)]",
+              "identity": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.resourceId]"
+            }
+          ]
+        },
+        "template": {
+          "containers": [
+            {
+              "image": "[format('{0}/{1}:{2}', format('{0}{1}', 'myregistry', environment().suffixes.acrLoginServer), 'copilot-dataloader', '0.0.1')]",
+              "name": "job",
+              "env": [
+                {
+                  "name": "AZURE_CLIENT_ID",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.clientId]"
+                },
+                {
+                  "name": "AZURE_OPENAI_ENDPOINT",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/openAI', '2022-09-01').outputs.openAIEnpoint.value]"
+                },
+                {
+                  "name": "BICEP_COPILOT_SEARCH_SERVICE_ENDPOINT",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/searchService', '2022-09-01').outputs.searchServiceEndpoint.value]"
+                },
+                {
+                  "name": "CONTAINER_NAME",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.containerName.value]"
+                },
+                {
+                  "name": "COSMOS_CONNECTION_STRING",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.connectionString.value]"
+                },
+                {
+                  "name": "COSMOS_URL",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.cosmosUrl.value]"
+                },
+                {
+                  "name": "DATABASE_NAME",
+                  "value": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/cosmosDb', '2022-09-01').outputs.databaseName.value]"
+                },
+                {
+                  "name": "MODEL_DEPLOYMENT_NAME_EMBEDDING",
+                  "value": "text-embedding-ada-002"
+                },
+                {
+                  "name": "QUICKSTART_REPO_URL",
+                  "value": "https://github.com/Azure/azure-quickstart-templates"
+                }
+              ],
+              "resources": {
+                "cpu": 4,
+                "memory": "8Gi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "[CONCAT('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/jobs/cpca-job-prod/providers/', concat('Microsoft.Authorization/roleAssignments/', guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/jobs/cpca-job-prod', '/providers/Microsoft.Authorization/roleDefinitions/4e3d2b60-56ae-4dc6-a233-09c8e5a82e68')))]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "[guid(reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId, '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/jobs/cpca-job-prod', '/providers/Microsoft.Authorization/roleDefinitions/4e3d2b60-56ae-4dc6-a233-09c8e5a82e68')]",
+      "apiVersion": "2018-09-01-preview",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/4e3d2b60-56ae-4dc6-a233-09c8e5a82e68",
+        "principalId": "[reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    },
+    {
+      "id": "/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deploymentScripts/runContainerJob",
+      "type": "Microsoft.Resources/deploymentScripts",
+      "name": "runContainerJob",
+      "apiVersion": "2023-08-01",
+      "location": "eastus",
+      "kind": "AzureCLI",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[format('{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/dataIdentity', '2022-09-01').outputs.identity.value.resourceId)]": {}
+        }
+      },
+      "properties": {
+        "azCliVersion": "2.61.0",
+        "forceUpdateTag": "0.0.1",
+        "retentionInterval": "PT1H",
+        "scriptContent": "az containerapp job start --ids /subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.App/jobs/cpca-job-prod"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'policy'), '/')[0], '/policies/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'policy'), '/')[1]))]",
+      "type": "Microsoft.ApiManagement/service/policies",
+      "name": "[format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'policy')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "value": "<policies>\r\n  <inbound/>\r\n  <backend/>\r\n  <outbound/>\r\n  <on-error/>\r\n</policies>",
+        "format": "rawxml"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api'), '/')[0], '/apis/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api'), '/')[1]))]",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "displayName": "Top Level APIs",
+        "apiRevision": "1",
+        "subscriptionRequired": false,
+        "path": "",
+        "protocols": [
+          "https"
+        ],
+        "isCurrent": true
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'policy'), '/')[0], '/apis/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'policy'), '/')[1], '/policies/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'policy'), '/')[2]))]",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'policy')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "value": "[__bicep.replaceMultiple('<policies>\r\n  <inbound>\r\n    <validate-azure-ad-token tenant-id=\"$REPLACE_AAD_TENANTID\">\r\n      <audiences>\r\n        $REPLACE_AUDIENCES_XML\r\n      </audiences>\r\n      <client-application-ids>\r\n        $REPLACE_CLIENT_APPIDS_XML\r\n      </client-application-ids>\r\n    </validate-azure-ad-token>\r\n    <set-backend-service base-url=\"$REPLACE_BACKEND_ENDPOINT\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"60\" buffer-response=\"false\" />\r\n  </backend>\r\n</policies>', createObject('$REPLACE_AAD_TENANTID', tenant().tenantId, '$REPLACE_BACKEND_ENDPOINT', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerApp', '2022-09-01').outputs.endpoint.value, '$REPLACE_AUDIENCES_XML', '<audience>25566d5c-e720-4c1d-bd6f-0031239a89d1</audience>', '$REPLACE_CLIENT_APPIDS_XML', '<application-id>6afa3943-03b1-459b-8128-25473180430d</application-id>'))]",
+        "format": "rawxml"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'health-check'), '/')[0], '/apis/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'health-check'), '/')[1], '/operations/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'health-check'), '/')[2]))]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'top-level-api', 'health-check')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "displayName": "Health Check API",
+        "method": "GET",
+        "urlTemplate": "/healthcheck"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api'), '/')[0], '/apis/', split(format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api'), '/')[1]))]",
+      "type": "Microsoft.ApiManagement/service/apis",
+      "name": "[format('{0}/{1}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "displayName": "Handler APIs",
+        "apiRevision": "1",
+        "subscriptionRequired": false,
+        "path": "bicep",
+        "protocols": [
+          "https"
+        ],
+        "isCurrent": true
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'policy'), '/')[0], '/apis/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'policy'), '/')[1], '/policies/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'policy'), '/')[2]))]",
+      "type": "Microsoft.ApiManagement/service/apis/policies",
+      "name": "[format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'policy')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "value": "[__bicep.replaceMultiple('<policies>\r\n  <inbound>\r\n    <validate-azure-ad-token tenant-id=\"$REPLACE_AAD_TENANTID\">\r\n      <audiences>\r\n        $REPLACE_AUDIENCES_XML\r\n      </audiences>\r\n      <client-application-ids>\r\n        $REPLACE_CLIENT_APPIDS_XML\r\n      </client-application-ids>\r\n    </validate-azure-ad-token>\r\n    <set-backend-service base-url=\"$REPLACE_BACKEND_ENDPOINT\" />\r\n  </inbound>\r\n  <backend>\r\n    <forward-request timeout=\"60\" buffer-response=\"false\" />\r\n  </backend>\r\n</policies>', createObject('$REPLACE_AAD_TENANTID', tenant().tenantId, '$REPLACE_BACKEND_ENDPOINT', format('{0}/bicep', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/containerApp', '2022-09-01').outputs.endpoint.value), '$REPLACE_AUDIENCES_XML', '<audience>25566d5c-e720-4c1d-bd6f-0031239a89d1</audience>', '$REPLACE_CLIENT_APPIDS_XML', '<application-id>6afa3943-03b1-459b-8128-25473180430d</application-id>'))]",
+        "format": "rawxml"
+      }
+    },
+    {
+      "id": "[format('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/{0}', concat('Microsoft.ApiManagement/service/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'copilot-post'), '/')[0], '/apis/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'copilot-post'), '/')[1], '/operations/', split(format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'copilot-post'), '/')[2]))]",
+      "type": "Microsoft.ApiManagement/service/apis/operations",
+      "name": "[format('{0}/{1}/{2}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apiManagement', '2022-09-01').outputs.resource.value.name, 'bicep-api', 'copilot-post')]",
+      "apiVersion": "2023-05-01-preview",
+      "properties": {
+        "displayName": "Copilot API",
+        "method": "POST",
+        "urlTemplate": "/copilot"
+      }
+    }
+  ],
+  "diagnostics": [
+    " Warning NestedDeploymentShortCircuited: The nested deployment '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig' at line '952' and column '18' could not be expanded because it contains one or more copy count expressions that cannot be evaluated prior to the start of the deployment: 'The template 'copy' definition at line '1044' and column '64' has an invalid copy count of: '[length(items(parameters('config')))]'. The copy count must be a non-negative integer value and cannot exceed '800'. Please see https://aka.ms/arm-resource-loops for usage details.'."
+  ]
+}

@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  validate-snapshots:
+    name: Validate Snapshots
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Intall Bicep Nightly
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash <(curl -Ls https://aka.ms/bicep/nightly-cli.sh)
+
+      - name: Validate snaphots
+        run: |
+          ~/.azure/bin/bicep snapshot ./infra/registry.bicepparam --subscription-id c31125a3-6827-421c-bbf3-f6837d8a75b9 --resource-group cp-rg --location eastus --mode validate
+          ~/.azure/bin/bicep snapshot ./infra/handler.bicepparam --subscription-id c31125a3-6827-421c-bbf3-f6837d8a75b9 --resource-group cp-rg --location eastus --mode validate
