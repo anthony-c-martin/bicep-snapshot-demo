@@ -2,7 +2,7 @@ import { UserAssignedIdentity, ContainerImage, CosmosDbIngress, CopilotHandlerCo
 
 param namePrefix string
 param nameSuffix string
-param envName string
+param isTestEnvironment bool
 param dataImage ContainerImage
 param registryName string
 param backendImage ContainerImage
@@ -60,6 +60,8 @@ module dataIdentity 'modules/identity.bicep' = {
 module cosmosDb 'modules/cosmosDb.bicep' = {
   name: 'cosmosDb'
   params: {
+    // avoid using zone-redundant in test environments
+    isZoneRedundant: !isTestEnvironment
     namePrefix: namePrefix
     nameSuffix: nameSuffix
     location: location
@@ -160,6 +162,8 @@ module apiManagement 'modules/apiManagement.bicep' = {
     appInsights: appInsights.outputs.appInsights
     identity: apimIdentity.outputs.identity
     subnetResourceId: vnet.outputs.apimSubnet.id
+    // avoid using zone-redundant in test environments
+    isZoneRedundant: !isTestEnvironment
   }
 }
 
@@ -208,7 +212,7 @@ module dataJob 'modules/job.bicep' = {
 module api 'modules/apis.bicep' = {
   name: 'apis'
   params: {
-    envName: envName
+    isTestEnvironment: isTestEnvironment
     apiManagementResource: apiManagement.outputs.resource
     containerAppEndpoint: containerApp.outputs.endpoint
     handlerConfig: handlerConfig
