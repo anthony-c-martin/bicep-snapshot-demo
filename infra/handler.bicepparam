@@ -3,7 +3,7 @@ using './handler/main.bicep'
 param namePrefix = 'cp'
 param containerAppPrefix = 'cpca'
 param nameSuffix = 'prod'
-param envName = 'prod'
+param isTestEnvironment = false
 
 param registryName = 'myregistry'
 param openAiLocation = 'westus2'

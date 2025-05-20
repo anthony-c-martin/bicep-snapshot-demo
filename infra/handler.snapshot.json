@@ -53,7 +53,7 @@
         "locations": [
           {
             "failoverPriority": 0,
-            "isZoneRedundant": false,
+            "isZoneRedundant": true,
             "locationName": "eastus"
           }
         ],
@@ -377,7 +377,7 @@
       "location": "eastus",
       "sku": {
         "name": "Premium",
-        "capacity": 1
+        "capacity": 3
       },
       "identity": {
         "type": "UserAssigned",
@@ -385,6 +385,11 @@
           "[format('{0}', reference('/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/apimIdentity', '2022-09-01').outputs.identity.value.resourceId)]": {}
         }
       },
+      "zones": [
+        "1",
+        "2",
+        "3"
+      ],
       "properties": {
         "publisherEmail": "unizomb@microsoft.com",
         "publisherName": "unizomb",
@@ -796,6 +801,6 @@
     }
   ],
   "diagnostics": [
-    " Warning NestedDeploymentShortCircuited: The nested deployment '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig' at line '952' and column '18' could not be expanded because it contains one or more copy count expressions that cannot be evaluated prior to the start of the deployment: 'The template 'copy' definition at line '1044' and column '64' has an invalid copy count of: '[length(items(parameters('config')))]'. The copy count must be a non-negative integer value and cannot exceed '800'. Please see https://aka.ms/arm-resource-loops for usage details.'."
+    " Warning NestedDeploymentShortCircuited: The nested deployment '/subscriptions/c31125a3-6827-421c-bbf3-f6837d8a75b9/resourceGroups/cp-rg/providers/Microsoft.Resources/deployments/appConfig' at line '958' and column '18' could not be expanded because it contains one or more copy count expressions that cannot be evaluated prior to the start of the deployment: 'The template 'copy' definition at line '1050' and column '64' has an invalid copy count of: '[length(items(parameters('config')))]'. The copy count must be a non-negative integer value and cannot exceed '800'. Please see https://aka.ms/arm-resource-loops for usage details.'."
   ]
 }

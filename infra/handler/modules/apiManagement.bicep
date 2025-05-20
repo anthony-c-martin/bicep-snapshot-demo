@@ -9,14 +9,18 @@ param appInsightsInstrumentationKey string
 param appInsights ResourceInfo
 
 param subnetResourceId string
+param isZoneRedundant bool
+
+var apimZones = ['1', '2', '3']
 
 resource service 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
   name: name
   location: location
   sku: {
     name: 'Premium'
-    capacity: 1
+    capacity: isZoneRedundant ? length(apimZones) : 1
   }
+  zones: isZoneRedundant ? apimZones : null
   identity: {
     type: 'UserAssigned'
     userAssignedIdentities: {

@@ -3,6 +3,7 @@ import { ResourceInfo, CosmosDbIngress } from '../../shared/types.bicep'
 param namePrefix string
 param nameSuffix string
 param location string
+param isZoneRedundant bool
 
 param cosmosDbIngress CosmosDbIngress
 
@@ -27,7 +28,7 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2023-03-15' = {
     locations: [
       {
         failoverPriority: 0
-        isZoneRedundant: false
+        isZoneRedundant: isZoneRedundant
         locationName: location
       }
     ]
