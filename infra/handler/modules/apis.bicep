@@ -1,14 +1,14 @@
 import { UserAssignedIdentity, ResourceInfo, CopilotHandlerConfig } from '../../shared/types.bicep'
 import { replaceMultiple } from '../../shared/helpers.bicep'
 
-param envName string
+param isTestEnvironment bool
 param apiManagementResource ResourceInfo
 param containerAppEndpoint string
 param handlerConfig CopilotHandlerConfig
 
 // The value 'organizations' is a well known tenant for any Microsoft Entra directory.
 // We use it in non-prod environments to support at least two tenant IDs. For example, Portal uses AME tenant to integrate with our DF environment.
-var aadTenantId = envName == 'df' ? 'organizations' : tenant().tenantId
+var aadTenantId = isTestEnvironment ? 'organizations' : tenant().tenantId
 
 var policies = {
   handler: loadTextContent('./apiPolicy-handler.xml')
