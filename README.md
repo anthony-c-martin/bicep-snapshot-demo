@@ -1,6 +1,6 @@
 # `bicep snapshot` Demo
 
-This repo exists to demonstrate an example use-case for the [`bicep snapshot` experimental CLI command](https://github.com/Azure/bicep/blob/main/docs/experimental/snapshot-command.md). It contains some existing infrastructure files for deploying a medium-level complexity containerized application under [handler.bicepparam](https://github.com/anthony-c-martin/bicep-snapshot-demo/blob/main/infra/handler.bicepparam) and [registry.bicepparam](https://github.com/anthony-c-martin/bicep-snapshot-demo/blob/main/infra/registry.bicepparam).
+This repo exists to demonstrate an example use-case for the [`bicep snapshot` experimental CLI command](https://github.com/Azure/bicep/blob/main/docs/experimental/snapshot-command.md), which will be available in Bicep version 0.36 (see [Installing Nightly](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md) if you want to preview this before it is released). It contains some existing infrastructure files for deploying a medium-level complexity containerized application under [handler.bicepparam](https://github.com/anthony-c-martin/bicep-snapshot-demo/blob/main/infra/handler.bicepparam) and [registry.bicepparam](https://github.com/anthony-c-martin/bicep-snapshot-demo/blob/main/infra/registry.bicepparam).
 
 ## What is a snapshot?
 The snapshot file (`*.snapshot.json`) contains a normalized view of all of the resource operations that'll take place if the given `.bicepparam` file is deployed to Azure, with all possible expresissions evaluated and expanded. Because this format is resilient to .bicep code refactoring, it gives a very quick visual understanding of "what will actually change with this infra code change".
@@ -16,6 +16,8 @@ When submitting a PR, developers must update their snapshots as well as their in
 <img width="757" alt="image" src="https://github.com/user-attachments/assets/37cd5872-16be-4c5c-a1a6-b3e4c2feda23" />
 
 ### Example of passing PR
-[Here](https://github.com/anthony-c-martin/bicep-snapshot-demo/pull/2) is an example of a PR where a developer has remembered to update the snapshot. As you can see the checks pass, and a reviewer is able to inspect the differences in the code review:
+[Here](https://github.com/anthony-c-martin/bicep-snapshot-demo/pull/2) is an example of a PR where a developer has remembered to update the snapshot. The CI checks pass, and a reviewer is able to inspect the differences in the code review:
 
 <img width="1229" alt="image" src="https://github.com/user-attachments/assets/4c4bdef9-9042-4aeb-a604-314b6f0d501f" />
+
+As you can see, the changes to the predicted state of the resource are visible, as opposed to just unevaluated expressions.
